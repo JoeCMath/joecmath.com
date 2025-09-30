@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JoeCMath – Math Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- MathJax for LaTeX rendering -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 2em;
+      line-height: 1.6;
+      background: #ffe699;
+      color: #222;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 2em;
+    }
+    h1 {
+      color: #060404;
+    }
+    nav a {
+      margin: 0 1em;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    footer {
+      margin-top: 3em;
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to JoeCMath</h1>
+    <p>Step-by-step lessons, clear examples, and math made simple.</p>
+    <nav>
+      <a href="#">Blog</a>
+      <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>✨ What You’ll Find Here</h2>
+    <p>
+      This site is a companion to the <a href="https://www.youtube.com/@JoeCMath">JoeCMath YouTube channel</a>.
+      Whether you’re tackling algebra, calculus, or linear algebra, you’ll find step-by-step guides with worked examples.
+    </p>
+  </section>
+
+  <section>
+    <h2>📚 Example Math (with LaTeX)</h2>
+    <p>Inline: \(a^2 + b^2 = c^2\)</p>
+    <p>Block math:</p>
+    <p>$$\int_{0}^{1} x^2 \, dx = \frac{1}{3}$$</p>
+  </section>
+
+  <section>
+    <h2>📬 Stay Updated</h2>
+    <p>Subscribe to get the latest lessons by email:</p>
+    <!-- Signup form include -->
+    <!-- Later you can drop in {% include signup.html %} here -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 JoeCMath – All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
