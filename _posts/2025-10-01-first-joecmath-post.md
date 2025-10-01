@@ -1,5 +1,5 @@
 ---
-title: "Combining Like Terms"
+title: "First Blog Post"
 categories: [other]
 tags: [blogpost]
 ---
