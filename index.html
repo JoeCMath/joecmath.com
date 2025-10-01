@@ -1,87 +1,196 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>JoeCMath – Math Blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>JoeCMath — Clear Math Lessons</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- MathJax for LaTeX rendering -->
+  <!-- MathJax for LaTeX -->
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-  </script>
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 2em;
-      line-height: 1.6;
-      background: #fdfdfd;
-      color: #222;
+    :root{
+      --bg: #ffffff;
+      --bg-alt: #f6f7fb;      /* light alternate section */
+      --text: #1b1b1b;
+      --muted: #667085;
+      --accent: #ffcc00;      /* tweak to your brand yellow later */
+      --card: #ffffff;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --maxw: 1200px;
     }
-    header {
-      text-align: center;
-      margin-bottom: 2em;
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
+      color:var(--text); background:var(--bg); line-height:1.6;
     }
-    h1 {
-      color: #cc0000;
+    .wrap{width:92%; max-width:var(--maxw); margin:0 auto;}
+    header.site{
+      padding:56px 0 24px; border-bottom:1px solid #eee; background:#fff;
     }
-    nav a {
-      margin: 0 1em;
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand h1{margin:0; font-size:1.4rem; letter-spacing:.2px}
+    nav a{margin-left:18px; text-decoration:none; color:var(--text); font-weight:600}
+    nav a:hover{opacity:.8}
+
+    /* Hero */
+    .hero{padding:72px 0; background:linear-gradient(180deg,#fff, #fff 60%, var(--bg-alt) 60%);}
+    .hero .panel{
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:36px; display:grid; gap:16px;
     }
-    section {
-      margin-bottom: 2em;
+    .hero h2{margin:0; font-size:2.2rem;}
+    .hero p{margin:0; color:var(--muted)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+    .btn{
+      display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
+      font-weight:700; border:2px solid var(--accent); color:#000; background:var(--accent);
     }
-    footer {
-      margin-top: 3em;
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
+    .btn.ghost{background:transparent}
+
+    /* Features / Topics */
+    section{padding:64px 0}
+    .alt{background:var(--bg-alt)}
+    h3.section-title{margin:0 0 20px; font-size:1.6rem}
+    .grid{
+      display:grid; gap:18px;
+      grid-template-columns:repeat(1,minmax(0,1fr));
     }
+    @media (min-width:700px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    .card{
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+      padding:22px; display:grid; gap:8px;
+    }
+    .card h4{margin:0}
+    .pill{
+      display:inline-block; padding:4px 10px; border-radius:999px;
+      background:#fff3b0; font-size:.85rem; font-weight:700;
+    }
+
+    /* Latest posts */
+    .posts li{
+      list-style:none; margin:0; padding:16px 0; border-bottom:1px solid #eee;
+      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    }
+    .posts a{color:var(--text); text-decoration:none; font-weight:650}
+    .posts small{color:var(--muted)}
+
+    /* Signup block */
+    .signup{
+      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px;
+    }
+
+    footer{padding:40px 0; text-align:center; color:var(--muted)}
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Welcome to JoeCMath</h1>
-    <p>Step-by-step lessons, clear examples, and math made simple.</p>
-    <nav>
-      <a href="#">Blog</a>
-      <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
-      <a href="#">About</a>
-    </nav>
+  <!-- Top Bar -->
+  <header class="site">
+    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center;">
+      <div class="brand">
+        <div style="width:28px; height:28px; border-radius:8px; background:var(--accent)"></div>
+        <h1>JoeCMath</h1>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/blog.html">Blog</a>
+        <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
+        <a href="/about.html">About</a>
+      </nav>
+    </div>
   </header>
 
-  <section>
-    <h2>✨ What You’ll Find Here</h2>
-    <p>
-      This site is a companion to the <a href="https://www.youtube.com/@JoeCMath">JoeCMath YouTube channel</a>.
-      Whether you’re tackling algebra, calculus, or linear algebra, you’ll find step-by-step guides with worked examples.
-    </p>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="panel">
+        <h2>Math made simple—one clear idea at a time.</h2>
+        <p>Step-by-step lessons with LaTeX-rendered equations. Companion to the JoeCMath YouTube channel.</p>
+        <div class="cta">
+          <a class="btn" href="/blog.html">Read the Blog</a>
+          <a class="btn ghost" href="https://www.youtube.com/@JoeCMath">Watch on YouTube</a>
+        </div>
+        <div>
+          <strong>Sample LaTeX:</strong> Inline \(a^2+b^2=c^2\), block
+          $$\int_{0}^{1} x^2 \, dx = \tfrac{1}{3}.$$
+        </div>
+      </div>
+    </div>
   </section>
 
+  <!-- FEATURED TOPICS -->
   <section>
-    <h2>📚 Example Math (with LaTeX)</h2>
-    <p>Inline: \(a^2 + b^2 = c^2\)</p>
-    <p>Block math:</p>
-    <p>$$\int_{0}^{1} x^2 \, dx = \frac{1}{3}$$</p>
+    <div class="wrap">
+      <h3 class="section-title">Featured Topics</h3>
+      <div class="grid">
+        <a class="card" href="/algebra.html">
+          <span class="pill">Algebra</span>
+          <h4>Like Terms & Exponents</h4>
+          <p class="muted">Clean rules. Crisp examples. Build a solid base fast.</p>
+        </a>
+        <a class="card" href="/calculus.html">
+          <span class="pill">Calculus</span>
+          <h4>Chain / Product / Power Rules</h4>
+          <p>Derivatives demystified with quick, focused walkthroughs.</p>
+        </a>
+        <a class="card" href="/linear-algebra.html">
+          <span class="pill">Linear Algebra</span>
+          <h4>Determinants & Gauss-Jordan</h4>
+          <p>From minors & cofactors to full row-reduction.</p>
+        </a>
+      </div>
+    </div>
   </section>
 
+  <!-- LATEST POSTS (static links for now; Jekyll can auto-list later) -->
+  <section class="alt">
+    <div class="wrap">
+      <h3 class="section-title">Latest Posts</h3>
+      <ul class="posts">
+        <li>
+          <a href="/posts/zero-product-property.html">Zero Product Property—Fast Guide</a>
+          <small>Algebra</small>
+        </li>
+        <li>
+          <a href="/posts/chain-rule-in-3-examples.html">Chain Rule in 3 Examples</a>
+          <small>Calculus</small>
+        </li>
+        <li>
+          <a href="/posts/cofactors-and-minors.html">Cofactors & Minors (3×3)</a>
+          <small>Linear Algebra</small>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EMAIL SIGNUP -->
   <section>
-    <h2>📬 Stay Updated</h2>
-    <p>Subscribe to get the latest lessons by email:</p>
-    <!-- Signup form include -->
-    <!-- Later you can drop in {% include signup.html %} here -->
+    <div class="wrap">
+      <h3 class="section-title">Get new lessons by email</h3>
+      <div class="signup">
+        <!-- If using Jekyll, replace this block with: {% include signup.html %} -->
+        <form action="https://YOUR-MAILCHIMP-URL" method="post" target="_blank" novalidate>
+          <label for="email">Subscribe for updates:</label><br/>
+          <input id="email" type="email" name="EMAIL" required
+                 placeholder="you@example.com"
+                 style="width:100%; max-width:420px; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ddd;">
+          <button type="submit" class="btn">Subscribe</button>
+        </form>
+        <p style="color:var(--muted); margin-top:8px;">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 JoeCMath – All rights reserved.</p>
+    <div class="wrap">
+      &copy; <span id="y"></span> JoeCMath • <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
+    </div>
   </footer>
 
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
