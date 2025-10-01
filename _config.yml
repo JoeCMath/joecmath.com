@@ -2,7 +2,7 @@
 title: "JoeCMath"
 description: "Clear, quick math tutorials."
 url: "https://joecmath.com"   # my domain
-baseurl: ""                    # keep empty when using a root domain
+baseurl: "/joecmath.com"      # may have to change when getting off of github
 
 # Pretty, nested URLs from post categories
 permalink: /:categories/:title/
