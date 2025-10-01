@@ -37,7 +37,7 @@
     nav a:hover{opacity:.8}
 
     /* Hero */
-    .hero{padding:72px 0; background: var(--bg-alt);}
+    .hero{padding:72px 0;}
     .hero .panel{
       background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
       padding:36px; display:grid; gap:16px;
@@ -53,7 +53,7 @@
 
     /* Features / Topics */
     section{padding:64px 0}
-    .alt{background:var(--bg)}
+    /* .alt { background: var(--bg); }  <!-- EDIT: old class removed */ 
     h3.section-title{margin:0 0 20px; font-size:1.6rem}
     .grid{
       display:grid; gap:18px;
@@ -84,6 +84,14 @@
     }
 
     footer{padding:40px 0; text-align:center; color:var(--muted)}
+
+    /* EDIT: new helper classes for alternating backgrounds */
+    .section-bg {
+      background: var(--bg);
+    }
+    .section-alt {
+      background: var(--bg-alt);
+    }
   </style>
 </head>
 <body>
@@ -105,7 +113,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero section-alt"> <!-- EDIT: added section-alt -->
     <div class="wrap">
       <div class="panel">
         <h2>High school and college math tutorials.</h2>
@@ -119,7 +127,7 @@
   </section>
 
   <!-- FEATURED TOPICS -->
-  <section>
+  <section class="section-bg"> <!-- EDIT: added section-bg -->
     <div class="wrap">
       <h3 class="section-title">Featured Topics</h3>
       <div class="grid">
@@ -143,7 +151,7 @@
   </section>
 
   <!-- LATEST POSTS (static links for now; Jekyll can auto-list later) -->
-  <section class="alt">
+  <section class="section-alt"> <!-- EDIT: replaced alt with section-alt -->
     <div class="wrap">
       <h3 class="section-title">Latest Posts</h3>
       <ul class="posts">
@@ -162,9 +170,9 @@
       </ul>
     </div>
   </section>
-  <!--
+
   <!-- EMAIL SIGNUP -->
-  <section>
+  <section class="section-bg"> <!-- EDIT: added section-bg -->
     <div class="wrap">
       <h3 class="section-title">Get new lessons by email</h3>
       <div class="signup">
@@ -180,7 +188,6 @@
       </div>
     </div>
   </section>
-  -->
   
   <footer>
     <div class="wrap">
