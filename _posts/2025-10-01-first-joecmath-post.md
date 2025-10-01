@@ -2,6 +2,7 @@
 title: "First Blog Post"
 categories: [other]
 tags: [blogpost]
+layout: default
 ---
 
 I product math content online.
