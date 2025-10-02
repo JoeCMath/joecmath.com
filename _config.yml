@@ -7,3 +7,5 @@ url: "https://joecmath.com"   # your domain
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+permalink: /:categories/:title/
