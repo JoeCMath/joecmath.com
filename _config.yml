@@ -1,9 +1,110 @@
-title: "JoeCMath"
-description: "Clear math tutorials"
-baseurl: ""        # leave empty for root domain (like joecmath.com)
-url: "https://joecmath.com"   # your domain
+# =========================
+# JoeCMath — Jekyll config
+# =========================
 
-# GitHub Pages supported plugins
+# ---- Site identity ----
+title: "JoeCMath"
+description: "Clear, quick math tutorials — Algebra, Calculus, Linear Algebra, and more."
+lang: en
+timezone: America/New_York
+
+# Your production URL and baseurl (root domain -> baseurl must be empty)
+url: "https://joecmath.com"
+baseurl: ""   # if previewing at username.github.io/joecmath.com set baseurl: "/joecmath.com"
+
+# ---- Permalinks / URLs ----
+# Categories in front matter create nested URLs like /algebra/exponents/like-terms/
+permalink: /:categories/:title/
+
+# Make all internal links baseurl-safe when you use the Liquid filter `| relative_url`
+# Example: <a href="{{ '/blog.html' | relative_url }}">
+
+# ---- Markdown / Math / Code ----
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+highlighter: rouge
+# Optional: pick a Rouge theme by adding a CSS file later; default works fine.
+
+# ---- Plugins (GitHub Pages whitelisted) ----
 plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-feed       # /feed.xml for RSS
+  - jekyll-sitemap    # /sitemap.xml for search engines
+  - jekyll-seo-tag    # meta tags, OpenGraph, Twitter Cards
+
+# ---- SEO tag defaults ----
+# These help jekyll-seo-tag produce richer cards.
+# Add real handles when ready.
+twitter:
+  username: joecmath
+logo: /assets/logo.png         # absolute-from-root path to your site logo
+social:
+  name: JoeCMath
+  links:
+    - https://www.youtube.com/@JoeCMath
+    - https://github.com/JoeCMath
+
+# ---- Feed config (optional but nice) ----
+feed:
+  path: feed.xml
+  categories:
+    - Algebra
+    - Calculus
+    - Linear Algebra
+
+# ---- Build behavior ----
+future: false  # don't publish future-dated posts
+lsi: false     # disable LSI (slow; not supported on GH Pages)
+# incremental: true  # local-only; GitHub Pages ignores this
+
+# ---- Defaults for layouts/metadata ----
+defaults:
+  # Blog posts get the post layout automatically
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      # author: "JoeCMath"
+  # Regular pages use the default site layout
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+
+# ---- Exclusions (don’t publish these) ----
+exclude:
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+  - .github
+  - assets/readme.txt
+
+# ---- Collections (optional; uncomment when you want evergreen sections) ----
+# collections:
+#   algebra:
+#     output: true
+#     permalink: /algebra/:path/
+#   calculus:
+#     output: true
+#     permalink: /calculus/:path/
+#   linear-algebra:
+#     output: true
+#     permalink: /linear-algebra/:path/
+
+# ---- Pagination (optional) ----
+# GitHub Pages supports the original jekyll-paginate gem, not paginate-v2.
+# Uncomment plugin above and these settings if you want /blog/page2/.
+# paginate: 10
+# paginate_path: "/blog/page:num/"
+
+# ---- Environment tip (local vs prod) ----
+# For local preview under the project URL, you can override:
+#   baseurl: "/joecmath.com"
+# Run locally with: jekyll serve --config _config.yml
+# Or with overrides: jekyll serve --config _config.yml,_config.dev.yml
