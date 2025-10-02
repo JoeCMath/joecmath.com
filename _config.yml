@@ -1,58 +1,9 @@
-# _config.yml
 title: "JoeCMath"
-description: "Clear, quick math tutorials."
-url: "https://joecmath.com"
-baseurl: ""                      # stays empty for root domain
-lang: en
-timezone: America/New_York
+description: "Clear math tutorials"
+baseurl: ""        # leave empty for root domain (like joecmath.com)
+url: "https://joecmath.com"   # your domain
 
-# Pretty, nested URLs (from post categories)
-permalink: /:categories/:title/
-
-# Markdown + math
-markdown: kramdown
-kramdown:
-  input: GFM
-  math_engine: mathjax
-
-# Plugins (GitHub Pages safe)
+# GitHub Pages supported plugins
 plugins:
   - jekyll-feed
-  - jekyll-sitemap
   - jekyll-seo-tag
-
-# Optional feed settings
-feed:
-  path: feed.xml
-
-# Defaults
-defaults:
-  # Blog posts
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: post
-  # Regular pages (about, blog index, etc.)
-  - scope:
-      path: ""
-      type: pages
-    values:
-      layout: default
-
-# Social for jekyll-seo-tag (optional but nice)
-twitter_username: joecmath
-github_username: JoeCMath
-# If you have a logo file:
-# logo: /assets/logo.png
-
-# Build behavior
-future: false
-lsi: false
-
-# Exclusions
-exclude:
-  - README.md
-  - assets/readme.txt
-  - node_modules
-  - .github
