@@ -1,103 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>About • JoeCMath</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+---
+layout: default
+title: About
+---
 
-  <style>
-    :root{
-      --bg: #ffe699;     /* JoeCMath yellow */
-      --bg-alt: #fff9e6; /* lighter yellow tint for alternate sections */
-      --text: #1a1a1a;
-      --muted: #5a5a5a;
-      --accent: #99b2ff; /* light complementary blue */
-      --card: #ffffff;
-      --shadow: 0 8px 24px rgba(0,0,0,0.08);
-      --radius: 16px;
-      --maxw: 1200px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      color:var(--text); background:var(--bg); line-height:1.6;
-    }
-    .wrap{width:92%; max-width:var(--maxw); margin:0 auto;}
-    header.site{
-      padding:24px 0; border-bottom:1px solid #eee; background:var(--bg);
-    }
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand h1{margin:0; font-size:1.4rem; letter-spacing:.2px}
-    nav a{margin-left:18px; text-decoration:none; color:var(--text); font-weight:600}
-    nav a:hover{opacity:.8}
+<!-- Page-scoped styles used by this page -->
+<style>
+  section{padding:64px 0}
+  .section-bg { background: var(--bg); }
+  .section-alt{ background: var(--bg-alt); }
 
-    section{padding:64px 0}
-    .section-bg { background: var(--bg); }
-    .section-alt{ background: var(--bg-alt); }
+  .card{
+    background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:24px;
+  }
+  .grid{
+    display:grid; gap:22px; grid-template-columns:1fr;
+  }
+  @media(min-width:900px){ .grid{ grid-template-columns: 1.2fr 1.8fr; } }
 
-    .card{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:24px;
-    }
-    .grid{
-      display:grid; gap:22px; grid-template-columns:1fr;
-    }
-    @media(min-width:900px){ .grid{ grid-template-columns: 1.2fr 1.8fr; } }
+  .pill{
+    display:inline-block; padding:4px 10px; border-radius:999px;
+    background:#e7edff; color:#14213d; font-size:.85rem; font-weight:700;
+  }
 
-    .pill{
-      display:inline-block; padding:4px 10px; border-radius:999px;
-      background:#e7edff; color:#14213d; font-size:.85rem; font-weight:700;
-    }
+  .btn{
+    display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
+    font-weight:700; border:2px solid var(--accent); color:#000; background:var(--accent);
+  }
+  .btn.ghost{background:transparent}
 
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
-      font-weight:700; border:2px solid var(--accent); color:#000; background:var(--accent);
-    }
-    .btn.ghost{background:transparent}
+  .kpis{display:grid; gap:12px; grid-template-columns:repeat(2,minmax(0,1fr))}
+  @media(min-width:700px){ .kpis{grid-template-columns:repeat(4,minmax(0,1fr))} }
+  .kpis .card{ text-align:center; }
 
-    .kpis{display:grid; gap:12px; grid-template-columns:repeat(2,minmax(0,1fr))}
-    @media(min-width:700px){ .kpis{grid-template-columns:repeat(4,minmax(0,1fr))} }
-    .kpis .card{ text-align:center; }
+  details{ background:var(--card); border-radius:12px; box-shadow:var(--shadow); padding:14px 18px; }
+  details+details{ margin-top:12px; }
+  summary{ cursor:pointer; font-weight:700; }
+</style>
 
-    details{ background:var(--card); border-radius:12px; box-shadow:var(--shadow); padding:14px 18px; }
-    details+details{ margin-top:12px; }
-    summary{ cursor:pointer; font-weight:700; }
-
-    footer{padding:40px 0; text-align:center; color:var(--muted)}
-  </style>
-</head>
-<body>
-
-  <!-- Header -->
-  <header class="site">
-    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center;">
-      <div class="brand">
-        <!-- swap src if you store your logo elsewhere -->
-        <img src="/assets/logo.png" alt="JoeCMath logo" style="height:32px; width:auto; border:2px solid #333; border-radius:6px; padding:2px;">
-        <h1>JoeCMath</h1>
-      </div>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/blog/">Blog</a>
-        <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
-        <a href="/about.html" aria-current="page">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero / Intro -->
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="card">
-        <span class="pill">About</span>
-        <h2 style="margin:.4em 0 0;">Quick. Edited. Easy-to-follow.</h2>
-        <p style="color:var(--muted); margin-top:.5em;">
+<!-- Hero / Intro -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="card">
+      <span class="pill">About</span>
+      <h2 style="margin:.4em 0 0;">Quick. Edited. Easy-to-follow.</h2>
+      <p style="color:var(--muted); margin-top:.5em;">
         I’m Joe, and while most of my work lives on YouTube, I’m branching out with this webpage as 
         both a new project and a learning experience.
-        </p>
-      </div>
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
 <!-- Bio block -->
 <section class="section-bg">
@@ -134,86 +87,78 @@
   </div>
 </section>
 
-  <!-- Principles / Approach -->
-  <section class="section-alt">
-    <div class="wrap">
-      <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));">
-        <div class="card">
-          <h4>Math Vision</h4>
-          <p>On-screen highlights synced with audio remove ambiguity.</p>
-        </div>
-        <div class="card">
-          <h4>Consume what you need</h4>
-          <p>Focused, bite-size content lets you watch only what you need.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Simple stats (optional) -->
-  <section class="section-bg">
-    <div class="wrap">
-      <div class="kpis">
-        <div class="card"><div style="font-size:2rem; font-weight:800;">2–10 min.</div><div class="muted"> Typical video length.</div></div>
-        <div class="card"><div style="font-size:2rem; font-weight:800;">3K+</div><div class="muted"> YouTube Subscribers. </div></div>
-        <div class="card"><div style="font-size:2rem; font-weight:800;">100+</div><div class="muted"> Uploaded videos. </div></div>
-        <div class="card"><div style="font-size:2rem; font-weight:800;">Over 9,000 </div><div class="muted"> Cumulative watch hours. </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="section-alt">
-    <div class="wrap">
-      <h3>FAQ</h3>
-      <details>
-        <summary>Can I request a topic?</summary>
-        <p>Yes! Email me or comment on YouTube. I'll be honest if I am too rusty to make content around a particular topic.</p>
-      </details>
-      <details>
-        <summary>Can I embed your videos in my class site?</summary>
-        <p>Absolutely. Please link back to the original YouTube video or this site.</p>
-      </details>
-      <details>
-        <summary>What tools do you use in your videos?</summary>
-        <p> Adobe Premiere Pro, Microsoft Power Point, Audacity, Geogebra (visuals)</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- Contact / Subscribe -->
-  <section class="section-bg">
-    <div class="wrap">
+<!-- Principles / Approach -->
+<section class="section-alt">
+  <div class="wrap">
+    <div class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));">
       <div class="card">
-        <h3>Get in touch</h3>
-        <p>Questions, suggestions, or collaboration ideas? I’d love to hear from you.</p>
-        <p>
-          Email: <a href="mailto:joecmath@gmail.com">joecmath@gmail.com</a>
-          &nbsp;•&nbsp;
-          YouTube: <a href="https://www.youtube.com/@JoeCMath">@JoeCMath</a>
-        </p>
-        <!--
-        <hr style="border:none; border-top:1px solid #eee; margin:16px 0;">
-        <h4>Subscribe for new lessons</h4>
-        <form action="https://YOUR-MAILCHIMP-URL" method="post" target="_blank" novalidate>
-          <label for="email">Subscribe for updates:</label><br/>
-          <input id="email" type="email" name="EMAIL" required
-                 placeholder="you@example.com"
-                 style="width:100%; max-width:420px; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ddd;">
-          <button type="submit" class="btn">Subscribe</button>
-        </form>
-        <p style="color:var(--muted); margin-top:8px;">No spam. Unsubscribe anytime.</p>
-        -->
+        <h4>Math Vision</h4>
+        <p>On-screen highlights synced with audio remove ambiguity.</p>
+      </div>
+      <div class="card">
+        <h4>Consume what you need</h4>
+        <p>Focused, bite-size content lets you watch only what you need.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div class="wrap">
-      &copy; <span id="y"></span> JoeCMath • <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
+<!-- Simple stats (optional) -->
+<section class="section-bg">
+  <div class="wrap">
+    <div class="kpis">
+      <div class="card"><div style="font-size:2rem; font-weight:800;">2–10 min.</div><div class="muted"> Typical video length.</div></div>
+      <div class="card"><div style="font-size:2rem; font-weight:800;">3K+</div><div class="muted"> YouTube Subscribers. </div></div>
+      <div class="card"><div style="font-size:2rem; font-weight:800;">100+</div><div class="muted"> Uploaded videos. </div></div>
+      <div class="card"><div style="font-size:2rem; font-weight:800;">Over 9,000 </div><div class="muted"> Cumulative watch hours. </div></div>
     </div>
-  </footer>
+  </div>
+</section>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+<!-- FAQ -->
+<section class="section-alt">
+  <div class="wrap">
+    <h3>FAQ</h3>
+    <details>
+      <summary>Can I request a topic?</summary>
+      <p>Yes! Email me or comment on YouTube. I'll be honest if I am too rusty to make content around a particular topic.</p>
+    </details>
+    <details>
+      <summary>Can I embed your videos in my class site?</summary>
+      <p>Absolutely. Please link back to the original YouTube video or this site.</p>
+    </details>
+    <details>
+      <summary>What tools do you use in your videos?</summary>
+      <p> Adobe Premiere Pro, Microsoft Power Point, Audacity, Geogebra (visuals)</p>
+    </details>
+  </div>
+</section>
+
+<!-- Contact / Subscribe -->
+<section class="section-bg">
+  <div class="wrap">
+    <div class="card">
+      <h3>Get in touch</h3>
+      <p>Questions, suggestions, or collaboration ideas? I’d love to hear from you.</p>
+      <p>
+        Email: <a href="mailto:joecmath@gmail.com">joecmath@gmail.com</a>
+        &nbsp;•&nbsp;
+        YouTube: <a href="https://www.youtube.com/@JoeCMath">@JoeCMath</a>
+      </p>
+      <!--
+      <hr style="border:none; border-top:1px solid #eee; margin:16px 0;">
+      <h4>Subscribe for new lessons</h4>
+      <form action="https://YOUR-MAILCHIMP-URL" method="post" target="_blank" novalidate>
+        <label for="email">Subscribe for updates:</label><br/>
+        <input id="email" type="email" name="EMAIL" required
+               placeholder="you@example.com"
+               style="width:100%; max-width:420px; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ddd;">
+        <button type="submit" class="btn">Subscribe</button>
+      </form>
+      <p style="color:var(--muted); margin-top:8px;">No spam. Unsubscribe anytime.</p>
+      -->
+    </div>
+  </div>
+</section>
+
+<script>document.getElementById('y') && (document.getElementById('y').textContent=new Date().getFullYear());</script>
