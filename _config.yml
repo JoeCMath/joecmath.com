@@ -1,46 +1,58 @@
 # _config.yml
 title: "JoeCMath"
 description: "Clear, quick math tutorials."
-url: "https://joecmath.com"   # my domain
-baseurl: ""                    # keep empty when using a root domain
+url: "https://joecmath.com"
+baseurl: ""                      # stays empty for root domain
+lang: en
+timezone: America/New_York
 
-# Pretty, nested URLs from post categories
+# Pretty, nested URLs (from post categories)
 permalink: /:categories/:title/
 
-# Markdown + math-friendly defaults
+# Markdown + math
 markdown: kramdown
 kramdown:
   input: GFM
-  math_engine: mathjax        
+  math_engine: mathjax
 
-# Time / build behavior
-timezone: America/New_York
-future: false
-lsi: false
-
-# Plugins supported on GitHub Pages
+# Plugins (GitHub Pages safe)
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  # Optional pagination (enable only if you'll use it on /blog/)
-  # - jekyll-paginate
 
-# Optional pagination settings (only used if jekyll-paginate is enabled)
-# paginate: 8
-# paginate_path: "/blog/page:num/"
+# Optional feed settings
+feed:
+  path: feed.xml
 
-# Default front matter (so every post gets a layout automatically)
+# Defaults
 defaults:
+  # Blog posts
   - scope:
       path: ""
-      type: "posts"
+      type: posts
     values:
       layout: post
-      # Add common tags or author here if you want:
-      # author: "JoeCMath"
+  # Regular pages (about, blog index, etc.)
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
 
-# Paths to ignore in the build (adjust as needed)
+# Social for jekyll-seo-tag (optional but nice)
+twitter_username: joecmath
+github_username: JoeCMath
+# If you have a logo file:
+# logo: /assets/logo.png
+
+# Build behavior
+future: false
+lsi: false
+
+# Exclusions
 exclude:
   - README.md
   - assets/readme.txt
+  - node_modules
+  - .github
