@@ -5,8 +5,4 @@ tags: [blogpost]
 layout: default
 ---
 
-I product math content online.
-
-\[
-1+1=2\square
-\]
+I produce math content online.
