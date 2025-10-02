@@ -1,226 +1,112 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>JoeCMath | Math Tutorials</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+---
+layout: default
+title: Home
+---
 
-  <!-- MathJax for LaTeX -->
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script id="MathJax-script" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<!-- Page-scoped styles (keeps layout clean) -->
+<style>
+  /* only what's not already in _layouts/default.html */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-top: 20px;
+  }
+  .video-wrapper iframe {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  }
 
-  <style>
-    :root{
-      --bg: #ffe699;     /* JoeCMath yellow */
-      --bg-alt: #fff9e6; /* lighter yellow tint for alternate sections */
-      --text: #1a1a1a;   /* near black for strong readability */
-      --muted: #5a5a5a;  /* medium gray for secondary text */
-      --accent: #99b2ff; /* light complementary blue */
-      --card: #ffffff;   /* white cards on yellow for contrast */
-      --shadow: 0 8px 24px rgba(0,0,0,0.08);
-      --radius: 16px;
-      --maxw: 1200px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial;
-      color:var(--text); background:var(--bg); line-height:1.6;
-    }
-    .wrap{width:92%; max-width:var(--maxw); margin:0 auto;}
-    header.site{
-      padding:56px 0 24px; border-bottom:1px solid #eee; background:var(--bg);
-    }
-    .brand{display:flex; align-items:center; gap:12px}
-    .brand h1{margin:0; font-size:1.4rem; letter-spacing:.2px}
-    nav a{margin-left:18px; text-decoration:none; color:var(--text); font-weight:600}
-    nav a:hover{opacity:.8}
+  .hero { padding:72px 0; }
+  .hero .panel{
+    background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
+    padding:36px; display:grid; gap:16px;
+  }
+  .hero h2{ margin:0; font-size:2.2rem; }
+  .hero p{ margin:0; color:var(--muted); }
+  .cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:8px; }
+  .btn{
+    display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
+    font-weight:700; border:2px solid var(--accent); color:#000; background:var(--accent);
+  }
+  .btn.ghost{ background:transparent; }
 
-    .video-wrapper {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      height: 0;
-      overflow: hidden;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-top: 20px;
-    }
-    
-    .video-wrapper iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    
-    /* Hero */
-    .hero{padding:72px 0;}
-    .hero .panel{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:36px; display:grid; gap:16px;
-    }
-    .hero h2{margin:0; font-size:2.2rem;}
-    .hero p{margin:0; color:var(--muted)}
-    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:10px; text-decoration:none;
-      font-weight:700; border:2px solid var(--accent); color:#000; background:var(--accent);
-    }
-    .btn.ghost{background:transparent}
+  /* optional pills/cards if you re-enable Featured/Latest later */
+  .pill{ display:inline-block; padding:4px 10px; border-radius:999px; background:var(--bg-alt); font-size:.85rem; font-weight:700; }
+  .card{ background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:22px; display:grid; gap:8px; }
+  .grid{ display:grid; gap:18px; grid-template-columns:repeat(1,minmax(0,1fr)); }
+  @media (min-width:700px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
 
-    /* Features / Topics */
-    section{padding:64px 0}
-    h3.section-title{margin:0 0 20px; font-size:1.6rem}
-    .grid{
-      display:grid; gap:18px;
-      grid-template-columns:repeat(1,minmax(0,1fr));
-    }
-    @media (min-width:700px){ .grid{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
-    .card{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow);
-      padding:22px; display:grid; gap:8px;
-    }
-    .card h4{margin:0}
-    .pill{
-      display:inline-block; padding:4px 10px; border-radius:999px;
-      background:var(--bg-alt); font-size:.85rem; font-weight:700;
-    }
+  .posts li{
+    list-style:none; margin:0; padding:16px 0; border-bottom:1px solid #eee;
+    display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; background:var(--bg-alt);
+  }
+  .posts a{ color:var(--text); text-decoration:none; font-weight:650; }
+  .posts small{ color:var(--muted); }
+</style>
 
-    /* Latest posts */
-    .posts li{
-      list-style:none; margin:0; padding:16px 0; border-bottom:1px solid #eee;
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; background:var(--bg-alt)
-    }
-    .posts a{color:var(--text); text-decoration:none; font-weight:650}
-    .posts small{color:var(--muted)}
-
-    /* Signup block */
-    .signup{
-      background:var(--card); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px;
-    }
-
-    footer{padding:40px 0; text-align:center; color:var(--muted)}
-
-    /* EDIT: new helper classes for alternating backgrounds */
-    .section-bg {
-      background: var(--bg);
-    }
-    .section-alt {
-      background: var(--bg-alt);
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Top Bar -->
-  <header class="site">
-    <div class="wrap" style="display:flex; justify-content:space-between; align-items:center;">
-      <div class="brand">
-        <img src="/assets/logo.png" alt="JoeCMath logo" style="height:32px; width:auto; border:2px solid #333; border-radius:6px; padding:2px;">
-        <h1>JoeCMath</h1>
+<!-- HERO -->
+<section class="hero section-alt">
+  <div class="wrap">
+    <div class="panel">
+      <h2>High school and college math tutorials.</h2>
+      <p>Follow along with process guides in the blog or view the associated videos embedded inline.</p>
+      <div class="cta">
+        <a class="btn ghost" href="https://www.youtube.com/@JoeCMath">Watch on YouTube</a>
+        <a class="btn" href="{{ '/blog/' | relative_url }}">Read the Blog</a>
       </div>
-      <nav>
-        <a href="/">Home</a>
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
-        <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
-        <a href="/about.html">About</a>
-      </nav>
-    </div>
-  </header>
 
-  <!-- HERO -->
-  <section class="hero section-alt"> 
-    <div class="wrap">
-      <div class="panel">
-        <h2>High school and college math tutorials.</h2>
-        <p>Follow along with process guides in the blog or view the associated videos embedded inline. </p>
-        <div class="cta">
-          <!-- <a class="btn" href="/blog.html">Read the Blog</a> -->
-          <a class="btn ghost" href="https://www.youtube.com/@JoeCMath">Watch on YouTube</a>
-        </div>
-        <!-- Embed YouTube video -->
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/vhH_35Kvc-8?autoplay=1&mute=1&loop=1&playlist=vhH_35Kvc-8&controls=0&modestbranding=1&playsinline=1"
-                  title="JoeCMath Intro" frameborder="0" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen></iframe>
-        </div>
+      <!-- Intro video -->
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/vhH_35Kvc-8?autoplay=1&mute=1&loop=1&playlist=vhH_35Kvc-8&controls=0&modestbranding=1&playsinline=1"
+          title="JoeCMath Intro" frameborder="0"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen></iframe>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FEATURED TOPICS (dropped until content exists)
-  <section class="section-bg"> 
-    <div class="wrap">
-      <h3 class="section-title">Featured Topics</h3>
-      <div class="grid">
-        <a class="card" href="/algebra.html">
-          <span class="pill">Leads nowhere</span>
-          <h4>Nowhere +</h4>
-          <p class="muted">Sometimes you need placeholders.</p>
-        </a>
-        <a class="card" href="/calculus.html">
-          <span class="pill">Would be Calculus</span>
-          <h4>If I had Calculus</h4>
-          <p>Derivations of nothing</p>
-        </a>
-        <a class="card" href="/linear-algebra.html">
-          <span class="pill">asdf</span>
-          <h4>asdf+</h4>
-          <p>we got placeholders</p>
-        </a>
-      </div>
+<!-- (Optional) Featured Topics — keep commented until you have pages ready
+<section class="section-bg">
+  <div class="wrap">
+    <h3 class="section-title">Featured Topics</h3>
+    <div class="grid">
+      <a class="card" href="{{ '/algebra/' | relative_url }}">
+        <span class="pill">Algebra</span>
+        <h4>Like Terms & Exponents</h4>
+        <p class="muted">Clean rules. Crisp examples. Build a solid base fast.</p>
+      </a>
+      <a class="card" href="{{ '/calculus/' | relative_url }}">
+        <span class="pill">Calculus</span>
+        <h4>Chain / Product / Power Rules</h4>
+        <p>Derivatives demystified with quick, focused walkthroughs.</p>
+      </a>
+      <a class="card" href="{{ '/linear-algebra/' | relative_url }}">
+        <span class="pill">Linear Algebra</span>
+        <h4>Determinants & Gauss–Jordan</h4>
+        <p>From minors & cofactors to full row-reduction.</p>
+      </a>
     </div>
-  </section>
-  -->
+  </div>
+</section>
+-->
 
-  <!-- LATEST POSTS (static links for now; Jekyll can auto-list later) 
-  <section class="section-alt"> 
-    <div class="wrap">
-      <h3 class="section-title">Latest Posts</h3>
-      <ul class="posts">
+<!-- (Optional) Latest Posts — uncomment when ready
+<section class="section-alt">
+  <div class="wrap">
+    <h3 class="section-title">Latest Posts</h3>
+    <ul class="posts">
+      {% for post in site.posts limit:5 %}
         <li>
-          <a href="/posts/zero-product-property.html">asdf</a>
-          <small>asdf</small>
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          <small>{{ post.date | date: "%b %-d, %Y" }}</small>
         </li>
-        <li>
-          <a href="/posts/chain-rule-in-3-examples.html">asdf</a>
-          <small>asdf</small>
-        </li>
-        <li>
-          <a href="/posts/cofactors-and-minors.html">asdf</a>
-          <small>asdf</small>
-        </li>
-      </ul>
-    </div>
-  </section>
-  -->
-
-  <!-- EMAIL SIGNUP  (hidden for now)
-  <section class="section-bg">
-    <div class="wrap">
-      <h3 class="section-title">Get new lessons by email</h3>
-      <div class="signup">
-        <form action="https://YOUR-MAILCHIMP-URL" method="post" target="_blank" novalidate>
-          <label for="email">Subscribe for updates:</label><br/>
-          <input id="email" type="email" name="EMAIL" required
-                 placeholder="you@example.com"
-                 style="width:100%; max-width:420px; padding:10px; margin:10px 0; border-radius:8px; border:1px solid #ddd;">
-          <button type="submit" class="btn">Subscribe</button>
-        </form>
-        <p style="color:var(--muted); margin-top:8px;">No spam. Unsubscribe anytime.</p>
-      </div>
-    </div>
-  </section>
-  -->
-  
-  <footer>
-    <div class="wrap">
-      &copy; <span id="y"></span> JoeCMath • <a href="https://www.youtube.com/@JoeCMath">YouTube</a>
-    </div>
-  </footer>
-
-  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
-</body>
-</html>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+-->
